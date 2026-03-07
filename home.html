@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitHub Issue Tracker | Home</title>
+    <link rel="shortcut icon" href="./assets/github-logo.png" type="image/x-icon">
+
+    <!-- Tailwind $ daisyUI -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <!-- font awesome  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+    <header class="w-[95%] mx-auto">
+        <div class="navbar bg-base-100 shadow-sm">
+            <div class="flex-1 flex items-center gap-1">
+                <div class="w-[36px] h-[36px]"><img src="./assets/github-logo.png" alt=""></div>
+                <a class="text-xl font-bold">GitHub Issues Tracker</a>
+            </div>
+            <div class="flex gap-2">
+                <input type="text" placeholder="Search Issues" class="input input-bordered max-w-[300px] md:w-auto" />
+                <div class="dropdown dropdown-end">
+                    <div tabindex="0" role="button" class=" ">
+                        <button class="btn btn-primary w-full">Search</button>
+                    </div>
+                </div>
+            </div>
+    </header>
+    <main>
+        <!-- tab section  -->
+        <section id="tabs" class="max-w-[1110px] mx-auto mt-7 p-4 shadow-md">
+            <button class="btn btn-primary">All</button>
+            <button class="btn ">Open</button>
+            <button class="btn ">Close</button>
+        </section>
+
+
+        <section class="max-w-[1110px] mx-auto mt-6 p-3 shadow-md flex justify-between">
+            <div class="flex items-center gap-2">
+                <div class="p-3 rounded-full shadow-md"><img src="./assets/Aperture.png" alt=""></div>
+                <div class="space-y-1">
+                    <h2 class="text-2xl font-bold">50 Issues</h2>
+                    <p class="text-[#64748b] ">Track and manage your project issues</p>
+                </div>
+            </div>
+            <div>
+                <span class="font-semibold"><span class="text-green-400 text-xs"><i
+                            class="fa-solid fa-circle"></i></span> Open</span>
+                <span class="font-semibold"><span class="text-[#A855F7] text-xs"><i class="fa-solid fa-circle"></i>
+                    </span>Closed</span>
+            </div>
+        </section>
+
+        <!-- issues container -->
+        <section class="max-w-[1110px] mx-auto mt-7 p-4 shadow-md grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
+            <div class="card border-2 border-gray-200 p-4 shadow-md space-y-4">
+
+                <div class="flex justify-between">
+                    <div>
+                        <img src="./assets/Open-Status.png" alt="">
+                    </div>
+                    <div class="pr-6 pl-6 py-2 rounded-[1000px] bg-[#feecec] text-red-600 max-w-20">HIGH</div>
+                </div>
+                <div>
+                    <h2 class="text-2xl font-bold">Fix navigation menu on mobile devices</h2>
+                    <p class="text-[#64748b] line-clamp-2">The navigation menu doesn't collapse properly on mobile devices...</p>
+                </div>
+                <div class="flex gap-2 justify-between">
+                    <div class="pr-3 pl-3 py-2 rounded-[1000px] bg-[#feecec] text-red-600 border border-red-300 font-bold">BUG</div>
+                    <div class="pr-3 pl-3 py-2 rounded-[100px] bg-[#fff8db] text-[#d97706] border border-yellow-300 font-bold">HELP WANTED</div>
+                </div>
+                <hr class="border-gray-200 px-8">
+                <div class="space-y-3">
+                    <p class="text-[#64748b]">#1by john_doe</p>
+                    <p class="text-[#64748b]">1/15/2024</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+</body>
+
+</html>
