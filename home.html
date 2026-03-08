@@ -36,9 +36,9 @@
     <main>
         <!-- tab section  -->
         <section id="tabs" class="max-w-[1110px] mx-auto mt-7 p-4 shadow-md">
-            <button class="btn btn-primary">All</button>
-            <button class="btn ">Open</button>
-            <button class="btn ">Close</button>
+            <button  id="allTab" class="btn btn-primary">All</button>
+            <button  id="openTab" class="btn ">Open</button>
+            <button id="closedTab" class="btn">Close</button>
         </section>
 
 
@@ -46,7 +46,7 @@
             <div class="flex justify-center items-center gap-2">
                 <div class="p-3 rounded-full shadow-md"><img src="./assets/Aperture.png" alt=""></div>
                 <div class="space-y-1">
-                    <h2 class="text-2xl font-bold">50 Issues</h2>
+                    <h2 class="text-2xl font-bold"><span id="count"></span> Issues</h2>
                     <p class="text-[#64748b] ">Track and manage your project issues</p>
                 </div>
             </div>

@@ -1,39 +1,49 @@
 const issuesContainer = document.getElementById("issuesContainer")
+const allTab = document.getElementById("allTab")
+const openTab = document.getElementById("openTab")
+const closedTab = document.getElementById("closedTab")
+
 const loadIssues = async () => {
-    const res = await fetch(" https://phi-lab-server.vercel.app/api/v1/lab/issues")
+    const res = await fetch("https://phi-lab-server.vercel.app/api/v1/lab/issues")
     const data = await res.json()
-    displayIssues(data.data)
+    displayIssues(data.data);
+
 
 }
 
-// "id": 1,
-// "title": "Fix navigation menu on mobile devices",
-// "description": "The navigation menu doesn't collapse properly on mobile devices. Need to fix the responsive behavior.",
-// "status": "open",
-// "labels": [
-// "bug",
-// "help wanted"
-// ],
-// "priority": "high",
-// "author": "john_doe",
-// "assignee": "jane_smith",
-// "createdAt": "2024-01-15T10:30:00Z",
-// "updatedAt": "2024-01-15T10:30:00Z"
+document.getElementById("allTab")
+    .addEventListener("click", () =>
+        loadIssues()
+    )
+document.getElementById("openTab")
+    .addEventListener("click", async () => {
+        const res = await fetch("https://phi-lab-server.vercel.app/api/v1/lab/issues")
+        const data = await res.json()
+        const openIssues = data.data.filter(issue => issue.status === 'open');
+        displayIssues(openIssues);
+    })
+document.getElementById("closedTab")
+    .addEventListener("click", async () => {
+        const res = await fetch("https://phi-lab-server.vercel.app/api/v1/lab/issues")
+        const data = await res.json()
+        const closedIssues = data.data.filter(issue => issue.status === 'closed');
+        displayIssues(closedIssues);
+    })
+
 
 const displayIssues = (issues) => {
+    issuesContainer.innerHTML = ""
     issues.forEach(issue => {
 
-        // 
         const card = document.createElement("div")
         card.className = "card p-4 shadow-md space-y-4"
         card.id = "card-container"
         card.innerHTML = `
        <div class="flex justify-between">
                     <div>
-                       <img 
-  src=${issue.status === "open" ? "./assets/Open-Status.png" : "./assets/Closed-Status.png"} 
-  alt="status" 
-/>
+                            <img 
+                             src=${issue.status === "open" ? "./assets/Open-Status.png" : "./assets/Closed-Status.png"} 
+                             alt="status" />
 
                     </div>
                     <div class="px-4 py-2 rounded-[1000px] bg-[#feecec] text-red-600 ">${issue.priority}</div>
@@ -53,16 +63,16 @@ const displayIssues = (issues) => {
                 </div>
               `
 
-        
+
         issuesContainer.appendChild(card)
     });
-// if (issue.status == "open") {
-//             const cardContainer = document.getElementById('card-container')
-//             console.log(cardContainer);
-            
-//             cardContainer.classList.add("border-t-2 border-t-green-400")
-            
-//         }
+    // if (issue.status == "open") {
+    //             const cardContainer = document.getElementById('card-container')
+    //             console.log(cardContainer);
+
+    //             cardContainer.classList.add("border-t-2 border-t-green-400")
+
+    //         }
 
 }
 loadIssues()

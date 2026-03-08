@@ -9,6 +9,7 @@ document.getElementById('singin-btn')
          alert('Sign in success');
         window.location.assign('./home.html');
     }else{
-        alert("Invalid Username or Password")    }
+        alert("Invalid Username or Password")    
+    return}
 
 })
