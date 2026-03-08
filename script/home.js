@@ -3,7 +3,8 @@ const allTab = document.getElementById("allTab")
 const openTab = document.getElementById("openTab")
 const closedTab = document.getElementById("closedTab")
 const count = document.getElementById("count")
-const spinner =document.getElementById("spinner") 
+const spinner = document.getElementById("spinner")
+
 
 const manageSpinner = (status) => {
     if (status == true) {
@@ -35,21 +36,6 @@ const loadIssueDetails = async (id) => {
 }
 
 const displayIssueDetails = (details => {
-    console.log(details);
-    //     {
-    //     "id": 3,
-    //     "title": "Update README with installation instructions",
-    //     "description": "The README file needs better installation instructions for new contributors.",
-    //     "status": "closed",
-    //     "labels": [
-    //         "documentation"
-    //     ],
-    //     "priority": "low",
-    //     "author": "mike_docs",
-    //     "assignee": "sarah_dev",
-    //     "createdAt": "2024-01-10T08:00:00Z",
-    //     "updatedAt": "2024-01-12T16:45:00Z"
-    // }
     const issueDetails = document.getElementById("details-container");
     issueDetails.innerHTML = `
     <div class="p-4 space-y-5">
@@ -170,7 +156,7 @@ const displayIssues = (issues) => {
 
         issuesContainer.appendChild(card)
     });
-manageSpinner(false)
+    manageSpinner(false)
 
 }
 loadIssues()
@@ -179,3 +165,24 @@ const counter = () => {
     count.innerText = issuesContainer.children.length
 
 }
+
+document.getElementById("btn-search").addEventListener("click", () => {
+    const allBtn = document.querySelectorAll("#tabs button")
+    allBtn.forEach(btn => {
+        btn.classList.remove("btn-primary")
+    })
+    allTab.classList.add("btn-primary")
+    const input = document.getElementById("searchInput")
+    const searchValue = input.value.trim().toLowerCase();
+    console.log(searchValue);
+    fetch("https://phi-lab-server.vercel.app/api/v1/lab/issues")
+        .then(res => res.json())
+        .then(data => {
+            const allWords = data.data
+            console.log(allWords);
+
+            const filterWords = allWords.filter(issue => issue.title.toLowerCase().includes(searchValue));
+            displayIssues(filterWords)
+            counter()
+        })
+})
