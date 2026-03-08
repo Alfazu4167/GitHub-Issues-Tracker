@@ -3,9 +3,20 @@ const allTab = document.getElementById("allTab")
 const openTab = document.getElementById("openTab")
 const closedTab = document.getElementById("closedTab")
 const count = document.getElementById("count")
+const spinner =document.getElementById("spinner") 
 
+const manageSpinner = (status) => {
+    if (status == true) {
+        spinner.classList.remove("hidden")
+        issuesContainer.classList.add("hidden")
+    } else {
+        issuesContainer.classList.remove("hidden")
+        spinner.classList.add("hidden")
+    }
+}
 
 const loadIssues = async () => {
+    manageSpinner(true)
     const res = await fetch("https://phi-lab-server.vercel.app/api/v1/lab/issues")
     const data = await res.json()
     displayIssues(data.data);
@@ -76,6 +87,7 @@ const displayIssueDetails = (details => {
 })
 
 allTab.addEventListener("click", () => {
+    manageSpinner(true)
     const allBtn = document.querySelectorAll("#tabs button")
     allBtn.forEach(btn => {
         btn.classList.remove("btn-primary")
@@ -87,6 +99,7 @@ allTab.addEventListener("click", () => {
 
 )
 openTab.addEventListener("click", async () => {
+    manageSpinner(true)
     const allBtn = document.querySelectorAll("#tabs button")
     allBtn.forEach(btn => {
         btn.classList.remove("btn-primary")
@@ -99,6 +112,7 @@ openTab.addEventListener("click", async () => {
     counter();
 })
 closedTab.addEventListener("click", async () => {
+    manageSpinner(true)
     const allBtn = document.querySelectorAll("#tabs button")
     allBtn.forEach(btn => {
         btn.classList.remove("btn-primary")
@@ -121,7 +135,7 @@ const displayIssues = (issues) => {
         card.onclick = () => (loadIssueDetails(issue.id))
         card.id = "card-container"
 
-        if (issue.status =="open") {
+        if (issue.status == "open") {
             const cardContainer = document.getElementById('card-container')
             card.classList.add("border-t-8", "border-t-green-400")
         } else {
@@ -156,7 +170,7 @@ const displayIssues = (issues) => {
 
         issuesContainer.appendChild(card)
     });
-
+manageSpinner(false)
 
 }
 loadIssues()
