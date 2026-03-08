@@ -35,15 +35,15 @@
     </header>
     <main>
         <!-- tab section  -->
-        <section id="tabs" class="max-w-[1110px] mx-auto mt-7 p-4 shadow-md">
-            <button  id="allTab" class="btn btn-primary">All</button>
-            <button  id="openTab" class="btn ">Open</button>
+        <section id="tabs" class="max-w-[93%] mx-auto mt-7 p-4 shadow-md">
+            <button id="allTab" class="btn btn-primary">All</button>
+            <button id="openTab" class="btn ">Open</button>
             <button id="closedTab" class="btn">Close</button>
         </section>
 
 
-        <section class="max-w-[1110px] mx-auto mt-6 p-3 shadow-md flex justify-between items-center">
-            <div class="flex justify-center items-center gap-2">
+        <section class="max-w-[93%] mx-auto mt-6 p-3 shadow-md flex justify-between items-center">
+            <div class="flex justify-center items-center gap-1">
                 <div class="p-3 rounded-full shadow-md"><img src="./assets/Aperture.png" alt=""></div>
                 <div class="space-y-1">
                     <h2 class="text-2xl font-bold"><span id="count"></span> Issues</h2>
@@ -59,15 +59,29 @@
         </section>
 
         <!-- issues container -->
-        <section id="issuesContainer" class="max-w-[1110px] mx-auto mt-7 p-4 shadow-md grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3">
-            <!-- <div id="card-container">
+        <section id="issuesContainer"
+            class="max-w-[93%] mx-auto mt-7 shadow-md grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-2">
+            <div id="card-container">
 
-            </div> -->
+            </div>
         </section>
+        <dialog id="my_modal_5" class="modal modal-bottom sm:modal-middle">
+            <div class="modal-box">
+                <div id="details-container" class="space-y-4">
+                    
+                </div>
+                <div class="modal-action">
+                    <form method="dialog">
+                        <!-- if there is a button in form, it will close the modal -->
+                        <button id="" class="btn btn-primary">Close</button>
+                    </form>
+                </div>
+            </div>
+        </dialog>
     </main>
 
-<img src="./assets/Open-Status.png" alt="">
-<img src="./assets/Closed-Status.png" alt="">
+    <img src="./assets/Open-Status.png" alt="">
+    <img src="./assets/Closed-Status.png" alt="">
 
     <script src="./script/home.js"></script>
 </body>
