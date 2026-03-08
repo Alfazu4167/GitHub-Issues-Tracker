@@ -119,7 +119,7 @@ const displayIssues = (issues) => {
         const card = document.createElement("div")
         card.className = "card p-4 shadow-md space-y-4"
         card.onclick = () => (loadIssueDetails(issue.id))
-        card.id = "card-container"
+        
 
         if (issue.status == "open") {
             const cardContainer = document.getElementById('card-container')
@@ -171,7 +171,7 @@ document.getElementById("btn-search").addEventListener("click", () => {
     allBtn.forEach(btn => {
         btn.classList.remove("btn-primary")
     })
-    allTab.classList.add("btn-primary")
+    
     const input = document.getElementById("searchInput")
     const searchValue = input.value.trim().toLowerCase();
     console.log(searchValue);
