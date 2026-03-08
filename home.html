@@ -15,14 +15,24 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
         integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <style>
+        @media screen and (max-width: 572px) {
+            #logoText {
+                display: none;
+            }
+        }
+    </style>
 </head>
 
 <body>
     <header class="w-[95%] mx-auto">
-        <div class="navbar bg-base-100 shadow-sm">
-            <div class="flex-1 flex items-center gap-1">
-                <div class="w-[36px] h-[36px]"><img src="./assets/github-logo.png" alt=""></div>
-                <a class="text-xl font-bold">GitHub Issues Tracker</a>
+        <div class="navbar bg-base-100 shadow-sm ">
+            <div class="flex-1 flex flex-col md:flex-row items-center gap-1">
+                <div class="w-[36px] h-[36px]"><img src="./assets/github-logo.png" alt="">
+                    <h3 id="logoText" class="text-xl font-bold">GitHub Issues Tracker</h3>
+                </div>
+
             </div>
             <div class="flex gap-2">
                 <input id="searchInput" type="text" placeholder="Search Issues"
