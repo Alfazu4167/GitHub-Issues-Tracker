@@ -48,11 +48,11 @@ const displayIssueDetails = (details => {
                         </div>
                         <div class="flex gap-1">
                             <div
-                                class="px-1 py-2 rounded-[1000px] bg-[#feecec] text-red-600 border border-red-300 font-bold">
+                                class="px-3 py-2 rounded-[1000px] bg-[#feecec] text-red-600 border border-red-300 font-bold">
                                 <span><i class="fa-solid fa-bug"></i></span>${details.labels[0]}
                             </div>
                             <div
-                                class="px-1 py-2 rounded-[100px] bg-[#fff8db] text-[#d97706] border border-yellow-300 font-bold">
+                                class="px-3 py-2 rounded-[100px] bg-[#fff8db] text-[#d97706] border border-yellow-300 font-bold">
                                 ${details.labels[1]}</div>
                         </div>
                         <p class="text-[#64748b] line-clamp-2">${details.description}</p>
@@ -143,8 +143,8 @@ const displayIssues = (issues) => {
                     <p class="text-[#64748b] line-clamp-2">${issue.description}</p>
                 </div>
                 <div class="flex gap-1">
-                    <div class="px-1 py-2 rounded-[1000px] bg-[#feecec] text-red-600 border border-red-300 font-bold"><span><i class="fa-solid fa-bug"></i></span>${issue.labels[0]}</div>
-                    <div class="px-1 py-2 rounded-[100px] bg-[#fff8db] text-[#d97706] border border-yellow-300 font-bold">${issue.labels[1]}</div>
+                    <div class="px-3 py-2 rounded-[1000px] bg-[#feecec] text-red-600 border border-red-300 font-bold"><span><i class="fa-solid fa-bug"></i></span>${issue.labels[0]}</div>
+                    <div class="px-3 py-2 rounded-[100px] bg-[#fff8db] text-[#d97706] border border-yellow-300 font-bold">${issue.status = "open"?issue.labels[1]:""}</div>
                 </div>
                 <hr class="border-gray-200 px-8">
                 <div class="space-y-3">
